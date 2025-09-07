@@ -1,4 +1,9 @@
 {
+  "name": "storybot-beaumont",
+  "description": "A child theme from the parent theme called Beaumont. Includes a lot of innovation and Diet Coke.",
+  "version": "0.1.0",
+  "repository": "SteveRyan-ASU/storybot-beaumont",
+  "license": "GPU",
   "dependencies": {
     "gulp-wp": "^0.6.10"
   }
