@@ -1,0 +1,382 @@
+{
+    "key": "group_storybot_story_metadata",
+    "title": "Metadata and Readability",
+    "fields": [
+        {
+            "key": "field_story_word_count",
+            "label": "Word Count",
+            "name": "word_count",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "Total words in the story (can be auto-calculated later).",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": 0,
+            "step": 1,
+            "max": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_story_readability_accordion",
+            "label": "Readability",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_story_lexile",
+            "label": "Lexile",
+            "name": "lexile",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Example: 880L or BR160L.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_story_fkgl",
+            "label": "Flesch-Kincaid Grade Level",
+            "name": "flesch_kincaid_grade_level",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "Example: 5.4",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": 0,
+            "step": 0.10000000000000001,
+            "max": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_story_fre",
+            "label": "Flesch Reading Ease",
+            "name": "flesch_reading_ease",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "0–100 (higher = easier). Example: 80.4",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": 0,
+            "max": 100,
+            "step": 0.10000000000000001,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_story_provenance_accordion",
+            "label": "Provenance",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_story_authorship_type",
+            "label": "Authorship Type",
+            "name": "authorship_type",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "human": "Human",
+                "ai": "AI",
+                "hybrid": "Hybrid"
+            },
+            "default_value": "human",
+            "ui": 1,
+            "return_format": "value",
+            "multiple": 0,
+            "ajax": 0,
+            "allow_null": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_story_model",
+            "label": "Model Name",
+            "name": "model_name",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "e.g., GPT-5, o4-mini, Claude 3.x",
+            "required": false,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_story_authorship_type",
+                        "operator": "==",
+                        "value": "ai"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_story_authorship_type",
+                        "operator": "==",
+                        "value": "hybrid"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_story_generated_at",
+            "label": "Generation Timestamp",
+            "name": "generated_at",
+            "aria-label": "",
+            "type": "date_time_picker",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_story_authorship_type",
+                        "operator": "==",
+                        "value": "ai"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_story_authorship_type",
+                        "operator": "==",
+                        "value": "hybrid"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "Y-m-d H:i",
+            "return_format": "U",
+            "first_day": 1,
+            "default_to_current_date": 0
+        },
+        {
+            "key": "field_story_prompt_hash",
+            "label": "Prompt Hash",
+            "name": "prompt_hash",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Optional SHA-256 of the prompt or system context (store the hash, not the full prompt).",
+            "required": false,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_story_authorship_type",
+                        "operator": "==",
+                        "value": "ai"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_story_authorship_type",
+                        "operator": "==",
+                        "value": "hybrid"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_story_parameters_json",
+            "label": "Generation Parameters (JSON)",
+            "name": "generation_parameters_json",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Optional JSON: {\"temperature\":0.7,\"top_p\":1,\"seed\":null}",
+            "required": false,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_story_authorship_type",
+                        "operator": "==",
+                        "value": "ai"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_story_authorship_type",
+                        "operator": "==",
+                        "value": "hybrid"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "new_lines": "",
+            "rows": 3,
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_story_human_author",
+            "label": "Human Author",
+            "name": "human_author",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Name of the writer or editor.",
+            "required": false,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_story_authorship_type",
+                        "operator": "==",
+                        "value": "human"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_story_authorship_type",
+                        "operator": "==",
+                        "value": "hybrid"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_story_source_url",
+            "label": "Source URL",
+            "name": "source_url",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "If adapted from an external source.",
+            "required": false,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_story_authorship_type",
+                        "operator": "==",
+                        "value": "human"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_story_authorship_type",
+                        "operator": "==",
+                        "value": "hybrid"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "story"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 1,
+    "modified": 1757485755
+}
