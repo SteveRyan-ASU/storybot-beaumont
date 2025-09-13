@@ -87,19 +87,22 @@ function storybot_register_taxonomies() {
 		]
 	);
 
+	// STORY: Grade taxonomy (K, 1, 2, ... )
 	register_taxonomy(
-		'grade_band',
-		[ 'story' ],
-		[
-			'label'        => __( 'Grade level', 'storybot-beaumont' ),
-			'labels'       => [
-				'name'          => __( 'Grade level', 'storybot-beaumont' ),
-				'singular_name' => __( 'Grade level', 'storybot-beaumont' ),
-			],
-			'hierarchical' => false,
-			'show_ui'      => true,
-			'show_in_rest' => true,
-		]
+	'grade',
+	['story'],
+	[
+		'label'        => __( 'Grades', 'storybot-beaumont' ),
+		'labels'       => [
+		'name'          => __( 'Grades', 'storybot-beaumont' ),
+		'singular_name' => __( 'Grade', 'storybot-beaumont' ),
+		],
+		'hierarchical' => false,       // flat terms: K, 1, 2, ...
+		'show_ui'      => true,
+		'show_in_rest' => true,        // visible/editable in block editor sidebar
+		'show_admin_column' => true,   // adds a column in the Stories list
+		'rewrite'      => [ 'slug' => 'grade' ],
+	]
 	);
 
 	// QUESTION taxonomies

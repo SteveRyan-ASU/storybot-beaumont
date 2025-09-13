@@ -1,0 +1,160 @@
+{
+    "key": "group_storybot_question_fields",
+    "title": "Question metadata",
+    "fields": [
+        {
+            "key": "field_q_related_story",
+            "label": "Related Story",
+            "name": "related_story",
+            "type": "post_object",
+            "instructions": "Link this question to its story (importer sets this automatically).",
+            "post_type": [
+                "story"
+            ],
+            "return_format": "id",
+            "ui": 1
+        },
+        {
+            "key": "field_q_choices",
+            "label": "Choices",
+            "name": "choices",
+            "type": "repeater",
+            "instructions": "For MCQ (single), ensure exactly one choice is marked correct.",
+            "collapsed": "field_q_choice_label",
+            "min": 2,
+            "max": 8,
+            "layout": "row",
+            "button_label": "Add Choice",
+            "sub_fields": [
+                {
+                    "key": "field_q_choice_id",
+                    "label": "Choice ID (optional)",
+                    "name": "id",
+                    "type": "text",
+                    "wrapper": {
+                        "width": "15"
+                    }
+                },
+                {
+                    "key": "field_q_choice_label",
+                    "label": "Label",
+                    "name": "label",
+                    "type": "text",
+                    "required": 1,
+                    "wrapper": {
+                        "width": "55"
+                    }
+                },
+                {
+                    "key": "field_q_choice_correct",
+                    "label": "Correct?",
+                    "name": "is_correct",
+                    "type": "true_false",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "15"
+                    }
+                },
+                {
+                    "key": "field_q_choice_feedback",
+                    "label": "Feedback (optional)",
+                    "name": "feedback",
+                    "type": "textarea",
+                    "rows": 2
+                }
+            ]
+        },
+        {
+            "key": "field_q_settings_accordion",
+            "label": "Settings",
+            "type": "accordion",
+            "open": 1
+        },
+        {
+            "key": "field_q_answer_type",
+            "label": "Answer Type",
+            "name": "answer_type",
+            "type": "select",
+            "choices": {
+                "mcq_single": "Multiple choice — single correct",
+                "mcq_multi": "Multiple choice — multiple correct",
+                "short_text": "Short text"
+            },
+            "default_value": "mcq_single",
+            "ui": 1,
+            "return_format": "value"
+        },
+        {
+            "key": "field_q_shuffle",
+            "label": "Shuffle Answers",
+            "name": "shuffle_answers",
+            "type": "true_false",
+            "ui": 1,
+            "default_value": 1
+        },
+        {
+            "key": "field_q_points",
+            "label": "Points",
+            "name": "points",
+            "type": "number",
+            "default_value": 1,
+            "min": 0,
+            "step": 1
+        },
+        {
+            "key": "field_q_short_text_accordion",
+            "label": "Short Text",
+            "type": "accordion",
+            "open": 0
+        },
+        {
+            "key": "field_q_expected_answer",
+            "label": "Expected Answer",
+            "name": "expected_answer",
+            "type": "textarea",
+            "rows": 2,
+            "instructions": "Reference answer or rubric.",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_q_answer_type",
+                        "operator": "==",
+                        "value": "short_text"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_q_explanation_accordion",
+            "label": "Explanation",
+            "type": "accordion",
+            "open": 0
+        },
+        {
+            "key": "field_q_explanation",
+            "label": "Explanation (HTML)",
+            "name": "explanation",
+            "type": "wysiwyg",
+            "tabs": "visual",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "question"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "show_in_rest": 1
+}
