@@ -1,0 +1,31 @@
+{
+	"name": "storybot/questions",
+	"title": "Storybot questions",
+	"description": "List the questions associated with the story.",
+	"category": "storybot",
+	"icon": "star-filled",
+	"keywords": [
+		"questions"
+	],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "storybot-questions.php"
+	},
+	"supports": {
+		"anchor": true,
+		"spacing": {
+			"margin": [
+				"top",
+				"bottom"
+			],
+			"padding": false
+		},
+		"classname": true,
+		"align": false,
+		"color": {
+			"background": true,
+			"text": true,
+			"link": true
+		}
+	}
+}
